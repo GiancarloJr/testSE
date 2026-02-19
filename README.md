@@ -61,28 +61,28 @@ Credenciais padrão do seed:
 
 - **Tela Login**
 
-![img.png](img.png)
+![img.png](images/img.png)
 
 - **Tela Cadastro**
 
-![img_1.png](img_1.png)
+![img_1.png](images/img_1.png)
 
 - **Tela Tarefas**
 
-![img_2.png](img_2.png)
+![img_2.png](images/img_2.png)
 
 - **Tela Cadastro de Tarefas**
 
-![img_3.png](img_3.png)
+![img_3.png](images/img_3.png)
 
 - **Dashboard Admin**
 
-![img_4.png](img_4.png)
+![img_4.png](images/img_4.png)
 
 - **Dashboard Usuario**
 
-![img_5.png](img_5.png)
+![img_5.png](images/img_5.png)
 
 - **Docker**
 
-![img_6.png](img_6.png)
+![img_6.png](images/img_6.png)
