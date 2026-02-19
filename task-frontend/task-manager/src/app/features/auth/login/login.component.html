@@ -1,0 +1,41 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <mat-card-header>
+      <mat-card-title>{{ 'auth.login.title' | t }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'auth.email.label' | t }}</mat-label>
+          <input matInput formControlName="email" type="email" />
+          @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+            <mat-error>{{ 'auth.email.required' | t }}</mat-error>
+          }
+          @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+            <mat-error>{{ 'auth.email.invalid' | t }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'auth.password.label' | t }}</mat-label>
+          <input matInput formControlName="password" type="password" />
+          @if (form.get('password')?.hasError('required') && form.get('password')?.touched) {
+            <mat-error>{{ 'auth.password.required' | t }}</mat-error>
+          }
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" class="full-width"
+                [disabled]="form.invalid || loading">
+          @if (loading) {
+            <mat-spinner diameter="20"></mat-spinner>
+          } @else {
+            {{ 'auth.login.submit' | t }}
+          }
+        </button>
+      </form>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <a mat-button routerLink="/auth/register">{{ 'auth.login.noAccount' | t }}</a>
+    </mat-card-actions>
+  </mat-card>
+</div>

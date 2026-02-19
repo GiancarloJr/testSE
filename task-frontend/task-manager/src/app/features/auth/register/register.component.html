@@ -1,0 +1,58 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <mat-card-header>
+      <mat-card-title>{{ 'auth.register.title' | t }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'auth.name.label' | t }}</mat-label>
+          <input matInput formControlName="name" />
+          @if (form.get('name')?.hasError('required') && form.get('name')?.touched) {
+            <mat-error>{{ 'auth.name.required' | t }}</mat-error>
+          }
+          @if (form.get('name')?.hasError('maxlength') && form.get('name')?.touched) {
+            <mat-error>{{ 'auth.name.maxLength' | t }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'auth.email.label' | t }}</mat-label>
+          <input matInput formControlName="email" type="email" />
+          @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+            <mat-error>{{ 'auth.email.required' | t }}</mat-error>
+          }
+          @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+            <mat-error>{{ 'auth.email.invalid' | t }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'auth.password.label' | t }}</mat-label>
+          <input matInput formControlName="password" type="password" />
+          @if (form.get('password')?.hasError('required') && form.get('password')?.touched) {
+            <mat-error>{{ 'auth.password.required' | t }}</mat-error>
+          }
+          @if (form.get('password')?.hasError('minlength') && form.get('password')?.touched) {
+            <mat-error>{{ 'auth.password.minLength' | t }}</mat-error>
+          }
+          @if (form.get('password')?.hasError('maxlength') && form.get('password')?.touched) {
+            <mat-error>{{ 'auth.password.maxLength' | t }}</mat-error>
+          }
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" class="full-width"
+                [disabled]="form.invalid || loading">
+          @if (loading) {
+            <mat-spinner diameter="20"></mat-spinner>
+          } @else {
+            {{ 'auth.register.submit' | t }}
+          }
+        </button>
+      </form>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <a mat-button routerLink="/auth/login">{{ 'auth.register.haveAccount' | t }}</a>
+    </mat-card-actions>
+  </mat-card>
+</div>

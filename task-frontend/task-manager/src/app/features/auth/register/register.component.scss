@@ -1,0 +1,29 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 64px);
+  padding: 16px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+
+  mat-card-content {
+    padding-top: 16px;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+button.full-width {
+  height: 48px;
+  margin-top: 8px;
+}
+
+mat-spinner {
+  display: inline-block;
+}

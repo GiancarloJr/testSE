@@ -1,0 +1,38 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #sidenav
+    [mode]="isMobile ? 'over' : 'side'"
+    [opened]="!isMobile"
+    [fixedInViewport]="isMobile"
+    fixedTopGap="64"
+  >
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link"
+         (click)="isMobile && sidenav.close()">
+        <mat-icon matListItemIcon>dashboard</mat-icon>
+        <span matListItemTitle>Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/tasks" routerLinkActive="active-link"
+         (click)="isMobile && sidenav.close()">
+        <mat-icon matListItemIcon>task</mat-icon>
+        <span matListItemTitle>{{ 'tasks.list.title' | t }}</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{ 'app.title' | t }}</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="onLogout()" [attr.aria-label]="'common.logout' | t">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+    <main class="content">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,38 @@
+.dashboard-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.view-toggle {
+  margin-bottom: 16px;
+}
+
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.cards-grid mat-card {
+  text-align: center;
+}
+
+.cards-grid mat-icon[mat-card-avatar] {
+  font-size: 32px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.chart-wrapper {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}

@@ -1,0 +1,26 @@
+import { Component, inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { TranslatePipe } from '../../i18n/translate.pipe';
+
+export interface ConfirmDialogData {
+  title: string;
+  message: string;
+}
+
+@Component({
+  selector: 'app-confirm-dialog',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule, TranslatePipe],
+  template: `
+    <h2 mat-dialog-title>{{ data.title }}</h2>
+    <mat-dialog-content>{{ data.message }}</mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button [mat-dialog-close]="false">{{ 'common.cancel' | t }}</button>
+      <button mat-raised-button color="warn" [mat-dialog-close]="true">{{ 'common.confirm' | t }}</button>
+    </mat-dialog-actions>
+  `
+})
+export class ConfirmDialogComponent {
+  data = inject<ConfirmDialogData>(MAT_DIALOG_DATA);
+}
